@@ -2,14 +2,25 @@
   "root": true,
   "env": {
     "browser": true,
-    "es2021": true
-  },
+    "es2021": true,
+    "jest": true
+},
   "extends": [
     "airbnb",
     "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended",
-    "prettier"
+    "prettier",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
   ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
   "plugins": [
     "react",
     "react-hooks",
@@ -24,7 +35,18 @@
       "impliedStrict": true
     }
   },
-  "rules": {
+  "rules": {         
+   "jsx-a11y/label-has-associated-control": ["error", {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }],
+      "jsx-a11y/label-has-for": ["error", {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }],
+   "camelcase":"off",
     "no-new": 0,
     "no-alert": 0,
     "no-shadow": 0,

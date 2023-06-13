@@ -1,19 +1,13 @@
 // routes
-import Router from './routes';
+import { useEffect } from 'react';
+
+import { BrowserRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 // theme
-import ThemeProvider from './theme';
 // components
-import ScrollToTop from './components/scroll-to-top';
-import { StyledChart } from './components/chart';
+import PayPalButtonComponent from './pages/PayPalButtonComponent';
 
 // ----------------------------------------------------------------------
-
 export default function App() {
-  return (
-    <ThemeProvider>
-      <ScrollToTop />
-      <StyledChart />
-      <Router />
-    </ThemeProvider>
-  );
+  return <PayPalButtonComponent />;
 }
